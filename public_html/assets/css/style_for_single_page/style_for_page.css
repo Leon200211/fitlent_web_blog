@@ -1,0 +1,18 @@
+
+.single_post{
+    margin-bottom: 30px;
+}
+.single_post .info{
+    margin: 20px 0;
+}
+.single_post .info .i{
+    display: inline-block;
+    margin-right: 30px;
+}
+.single_post a{
+    text-decoration: underline;
+}
+.single_post a:hover{
+    text-decoration: none;
+    color: #008489;
+}

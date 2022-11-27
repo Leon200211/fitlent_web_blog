@@ -1,5 +1,7 @@
 <?php
-include("path.php");
+require_once ("path.php");
+require_once ("app/controllers/users.php");
+
 ?>
 
 
@@ -35,28 +37,28 @@ include("app/include/header.php");
   <h2>Регистрация</h2>
   <form class="row justify-content-center" method="post" action="registration.php">
     <div class="mb-3 col-12 col-md-4">
-      <label for="formGroupExampleInput" class="form-label">Example label</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+      <label for="login" class="form-label">Ваш логин</label>
+      <input type="text" name="login" class="form-control" id="login" placeholder="Example input placeholder">
     </div>
     <div class="w-100"></div>
     <div class="mb-3 col-12 col-md-4">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
     <div class="w-100"></div>
     <div class="mb-3 col-12 col-md-4">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label for="password" class="form-label">Пароль</label>
+      <input type="password" name="password" class="form-control" id="password">
     </div>
     <div class="w-100"></div>
     <div class="mb-3 col-12 col-md-4">
-      <label for="exampleInputPassword2" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword2">
+      <label for="password-second" class="form-label">Повторите пароль</label>
+      <input type="password" name="password-second" class="form-control" id="password-second">
     </div>
     <div class="w-100"></div>
     <div class="mb-3 col-12 col-md-4">
-      <button type="submit" class="btn btn-secondary">Зарегистрироваться</button>
+      <button type="submit" class="btn btn-secondary" name="button-reg">Зарегистрироваться</button>
       <a href="login.php">Войти</a>
     </div>
   </form>

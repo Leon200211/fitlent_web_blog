@@ -28,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../my_gui/public_html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -50,7 +50,9 @@
       <workItem from="1669294790998" duration="7072000" />
       <workItem from="1669375163436" duration="5736000" />
       <workItem from="1669456319104" duration="4692000" />
-      <workItem from="1669538661125" duration="8605000" />
+      <workItem from="1669538661125" duration="8902000" />
+      <workItem from="1669620943764" duration="1068000" />
+      <workItem from="1669650450686" duration="3636000" />
     </task>
     <servers />
   </component>

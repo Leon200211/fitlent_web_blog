@@ -38,12 +38,12 @@ include("app/include/header.php");
   <form class="row justify-content-center" method="post" action="registration.php">
     <div class="mb-3 col-12 col-md-4">
       <label for="login" class="form-label">Ваш логин</label>
-      <input type="text" name="login" class="form-control" id="login" placeholder="Example input placeholder">
+      <input type="text" value="<?=$login?>" name="login" class="form-control" id="login" placeholder="Example input placeholder">
     </div>
     <div class="w-100"></div>
     <div class="mb-3 col-12 col-md-4">
       <label for="email" class="form-label">Email</label>
-      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <input type="email" value="<?=$email?>" name="email" class="form-control" id="email" aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
     <div class="w-100"></div>
@@ -57,6 +57,14 @@ include("app/include/header.php");
       <input type="password" name="password-second" class="form-control" id="password-second">
     </div>
     <div class="w-100"></div>
+      <?php
+      if(isset($error)){
+          ?>
+        <div class="mb-3 col-12 col-md-4 error">Ошибка: <?= $error?></div>
+          <div class="w-100"></div>
+        <?php
+      }
+      ?>
     <div class="mb-3 col-12 col-md-4">
       <button type="submit" class="btn btn-secondary" name="button-reg">Зарегистрироваться</button>
       <a href="login.php">Войти</a>

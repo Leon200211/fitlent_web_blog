@@ -21,3 +21,8 @@
     margin-left: 55px;
     transition: all .3s;
  }
+
+
+form div.error{
+    color: red;
+}

@@ -118,6 +118,7 @@ function insert($table, $params){
 
     // отлов ошибок
     dbCheckError($query);
+    return $pdo->lastInsertId('id');
 }
 
 

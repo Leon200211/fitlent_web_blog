@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once ("path.php");
 require_once ("app/controllers/users.php");
 
@@ -58,9 +59,9 @@ include("app/include/header.php");
     </div>
     <div class="w-100"></div>
       <?php
-      if(isset($error)){
+      if(isset($message)){
           ?>
-        <div class="mb-3 col-12 col-md-4 error">Ошибка: <?= $error?></div>
+        <div class="mb-3 col-12 col-md-4 error"><?= $message?></div>
           <div class="w-100"></div>
         <?php
       }

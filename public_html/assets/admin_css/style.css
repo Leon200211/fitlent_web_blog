@@ -1,0 +1,29 @@
+
+
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #5c5b5b;
+}
+body{
+    background: #f6f6f6;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+input{
+    padding: 10px 12px;
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ececec;
+    line-height: 1.5rem;
+    color: #444444;
+    font-size: 1rem;
+}

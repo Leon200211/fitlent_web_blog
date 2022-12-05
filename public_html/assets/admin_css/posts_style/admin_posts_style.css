@@ -1,0 +1,46 @@
+
+
+.posts{
+    height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+
+.posts h2{
+    text-align: center;
+    margin: 1.5rem;
+}
+
+.posts .title-table div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+    font-weight: 700;
+}
+.posts .post div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.posts .post .id{
+    font-weight: bold;
+}
+.posts .post .red{
+    color: green;
+}
+.posts .post .del{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+

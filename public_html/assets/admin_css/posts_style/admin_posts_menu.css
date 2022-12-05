@@ -1,0 +1,33 @@
+
+
+
+.sidebar{
+    margin: 1rem 0;
+    background: #006669;
+
+    min-height: 600px;
+}
+.sidebar ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: #d3d3d3;
+}
+.sidebar ul a{
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #fff;
+}
+.sidebar ul a:hover{
+    padding-left: 10px;
+    transition: all 0.3s;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+
+
+
+
+
+

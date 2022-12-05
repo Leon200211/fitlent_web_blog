@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -28,13 +28,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/users" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\admin\users" />
+      <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\admin\topics" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\assets\admin_css\main_style" />
       <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\assets\images\img_for_style\style_header" />
       <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\assets\images\img_for_style" />
     </key>
@@ -54,7 +59,8 @@
       <workItem from="1669620943764" duration="1068000" />
       <workItem from="1669650450686" duration="3817000" />
       <workItem from="1669911899819" duration="208000" />
-      <workItem from="1670068055433" duration="9527000" />
+      <workItem from="1670068055433" duration="10318000" />
+      <workItem from="1670238542647" duration="3792000" />
     </task>
     <servers />
   </component>

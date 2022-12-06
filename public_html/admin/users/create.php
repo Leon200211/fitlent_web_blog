@@ -44,19 +44,9 @@ include("../../app/include/header_admin.php");
     <div class="row">
 
 
-        <div class="sidebar col-3">
-            <ul>
-                <li>
-                    <a href="#">Записи</a>
-                </li>
-                <li>
-                    <a href="#">Категории</a>
-                </li>
-                <li>
-                    <a href="#">Пользователи</a>
-                </li>
-            </ul>
-        </div>
+        <?php
+        include '../../app/include/sidebar_admin.php';
+        ?>
 
 
 
@@ -93,10 +83,12 @@ include("../../app/include/header_admin.php");
                         <label for="password-second" class="form-label">Повторите пароль</label>
                         <input type="password" name="password-second" class="form-control" id="password-second">
                     </div>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>User</option>
-                        <option value="1">Admin</option>
-                    </select>
+                    <div class="col">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>User</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit">Создать пользователя</button>
                     </div>

@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['button-reg'])){
             $_SESSION['user_state'] = $existence['user_state'];
 
             if($_SESSION['user_state'] == 'admin'){
-                header('Location: ' . BASE_URL . "admin/admin.php");
+                header('Location: ' . BASE_URL . "admin/posts/index.php");
             }else{
                 header('Location: ' . BASE_URL);
             }

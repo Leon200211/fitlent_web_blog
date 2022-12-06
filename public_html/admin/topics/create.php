@@ -44,19 +44,9 @@ include("../../app/include/header_admin.php");
     <div class="row">
 
 
-        <div class="sidebar col-3">
-            <ul>
-                <li>
-                    <a href="#">Записи</a>
-                </li>
-                <li>
-                    <a href="#">Категории</a>
-                </li>
-                <li>
-                    <a href="#">Пользователи</a>
-                </li>
-            </ul>
-        </div>
+        <?php
+        include '../../app/include/sidebar_admin.php';
+        ?>
 
 
 

@@ -4,6 +4,7 @@ session_start();
 
 
 require_once("../../path.php");
+require_once("../../app/controllers/topics.php");
 ?>
 
 
@@ -64,18 +65,26 @@ include("../../app/include/header_admin.php");
             </div>
 
 
-
             <div class="row add-post">
                 <form action="create.php" method="post">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Название категории" aria-label="Название категории">
+                        <input type="text" class="form-control" name="name" value="<?=$name?>" placeholder="Название категории" aria-label="Название категории">
                     </div>
                     <div class="col">
                         <label for="content" class="form-label">Описание категории</label>
-                        <textarea class="form-control" id="content" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="content" rows="3"><?=$description?></textarea>
                     </div>
+                    <div class="w-100"></div>
+                    <?php
+                    if(isset($errMsg)){
+                        ?>
+                        <div class="mb-3 col-12 col-md-4 error" style="color: red;"><?= $errMsg?></div>
+                        <div class="w-100"></div>
+                        <?php
+                    }
+                    ?>
                     <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Сохранить категорию</button>
+                        <button name="topic-create" class="btn btn-primary" type="submit">Сохранить категорию</button>
                     </div>
                 </form>
             </div>

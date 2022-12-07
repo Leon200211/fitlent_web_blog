@@ -146,12 +146,12 @@ include("app/include/header.php");
             <div class="section topics">
                 <h3>Темы</h3>
                 <ul>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
+                    <?php
+                    $topics = SelectAll('topics');
+                    foreach ($topics as $key => $topic):
+                    ?>
+                    <li><a href="#"><?=$topic['name']?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
 

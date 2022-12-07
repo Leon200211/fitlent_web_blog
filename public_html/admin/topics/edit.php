@@ -2,8 +2,9 @@
 
 session_start();
 
-require_once "../../app/controllers/topics.php";
+
 require_once("../../path.php");
+require_once("../../app/controllers/topics.php");
 ?>
 
 
@@ -23,6 +24,7 @@ require_once("../../path.php");
     <link href="../../assets/admin_css/main_style/style_footer.css" rel="stylesheet">
     <link href="../../assets/admin_css/posts_style/admin_posts_menu.css" rel="stylesheet">
     <link href="../../assets/admin_css/posts_style/admin_posts_style.css" rel="stylesheet">
+    <link href="../../assets/admin_css/posts_style/admin_post_create_style.css" rel="stylesheet">
 
 
 
@@ -59,29 +61,34 @@ include("../../app/include/header_admin.php");
             </div>
 
             <div class="row title-table">
-                <h2>Управление категориями</h2>
-                <div class="id col-1">ID</div>
-                <div class="title col-5">Название</div>
-                <div class="red col-4">Действия</div>
+                <h2>Редактирование категории - <?=$name?></h2>
             </div>
 
 
-                <?php
-                foreach ($topics as $key => $topic){
-                    ?>
-                    <div class="row post">
-                        <div class="id col-1"><?=$key+1?></div>
-                        <div class="title col-5"><?=$topic['name']?></div>
-                        <div class="red col-2">
-                            <a href="edit.php?id=<?=$topic['id']?>">edit</a>
-                        </div>
-                        <div class="del col-2">
-                            <a href="edit.php?delete_id=<?=$topic['id']?>">delete</a>
-                        </div>
+            <div class="row add-post">
+                <form action="edit.php" method="post">
+                    <input type="hidden" name="id" value="<?=$id?>">
+                    <div class="col">
+                        <input type="text" class="form-control" name="name" value="<?=$name?>" placeholder="Название категории" aria-label="Название категории">
                     </div>
+                    <div class="col">
+                        <label for="content" class="form-label">Описание категории</label>
+                        <textarea class="form-control" name="description" id="content" rows="3"><?=$description?></textarea>
+                    </div>
+                    <div class="w-100"></div>
                     <?php
-                }
-                ?>
+                    if(isset($errMsg)){
+                        ?>
+                        <div class="mb-3 col-12 col-md-4 error" style="color: red;"><?= $errMsg?></div>
+                        <div class="w-100"></div>
+                        <?php
+                    }
+                    ?>
+                    <div class="col-12">
+                        <button name="topic-edit" class="btn btn-primary" type="submit">Обновить категорию</button>
+                    </div>
+                </form>
+            </div>
 
 
         </div>

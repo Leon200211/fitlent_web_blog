@@ -54,20 +54,16 @@ include("../../app/include/header_admin.php");
 
         <div class="posts col-9">
 
-            <div class="button row">
-                <a href="create.php" class="col-3 btn btn-success">Добавить запись</a>
-                <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-warning">Управление записями</a>
-            </div>
 
             <div class="row title-table">
-                <h2>Добавление записи</h2>
+                <h2>Редактирование запись</h2>
             </div>
 
 
 
             <div class="row add-post">
-                <form action="create.php" method="post" enctype="multipart/form-data">
+                <form action="edit.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?=$id?>">
                     <div class="col mb-4">
                         <input type="text" value="<?=$title?>" name="title" class="form-control" placeholder="Title" aria-label="Название статьи">
                     </div>
@@ -80,17 +76,20 @@ include("../../app/include/header_admin.php");
                         <label class="input-group-text" for="inputGroupFile02">Загрузить</label>
                     </div>
                     <select name="topic" class="form-select mb-2" aria-label="Default select example">
-                        <option selected="true" disabled="disabled">Категория</option>
                         <?php
                         foreach ($topics as $topic){
                             ?>
                             <option value="<?=$topic['id']?>"><?=$topic['name']?></option>
-                        <?php
+                            <?php
                         }
                         ?>
                     </select>
                     <div class="form-check">
-                        <input name="publish" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <?php if(empty($publish) or $publish == 0): ?>
+                            <input name="publish" class="form-check-input" type="checkbox" id="flexCheckChecked">
+                        <?php else: ?>
+                            <input name="publish" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" checked>
+                        <?php endif ?>
                         <label class="form-check-label" for="flexCheckChecked">
                             Опубликовать сразу
                         </label>
@@ -101,7 +100,7 @@ include("../../app/include/header_admin.php");
                     </div>
 
                     <div class="col col-6">
-                        <button name="add_post" class="btn btn-primary" type="submit">Добавить запись</button>
+                        <button name="edit_post" class="btn btn-primary" type="submit">Изменить запись</button>
                     </div>
                 </form>
             </div>

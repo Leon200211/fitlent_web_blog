@@ -75,14 +75,9 @@ include("../../app/include/header_admin.php");
                         <textarea class="form-control" name="description" id="content" rows="3"><?=$description?></textarea>
                     </div>
                     <div class="w-100"></div>
-                    <?php
-                    if(isset($errMsg)){
-                        ?>
-                        <div class="mb-3 col-12 col-md-4 error" style="color: red;"><?= $errMsg?></div>
-                        <div class="w-100"></div>
-                        <?php
-                    }
-                    ?>
+                    <div class="mb-12 col-12 col-md-12 err">
+                        <?php include "../../app/helps/error_info.php"; ?>
+                    </div>
                     <div class="col-12">
                         <button name="topic-create" class="btn btn-primary" type="submit">Сохранить категорию</button>
                     </div>

@@ -54,11 +54,7 @@ include("../../app/include/header_admin.php");
 
         <div class="posts col-9">
 
-            <div class="button row">
-                <a href="create.php" class="col-3 btn btn-success">Добавить категорию</a>
-                <span class="col-1"></span>
-                <a href="index.php" class="col-3 btn btn-warning">Управление категориями</a>
-            </div>
+
 
             <div class="row title-table">
                 <h2>Редактирование категории - <?=$name?></h2>
@@ -76,14 +72,9 @@ include("../../app/include/header_admin.php");
                         <textarea class="form-control" name="description" id="content" rows="3"><?=$description?></textarea>
                     </div>
                     <div class="w-100"></div>
-                    <?php
-                    if(isset($errMsg)){
-                        ?>
-                        <div class="mb-3 col-12 col-md-4 error" style="color: red;"><?= $errMsg?></div>
-                        <div class="w-100"></div>
-                        <?php
-                    }
-                    ?>
+                    <div class="mb-12 col-12 col-md-12 err">
+                        <?php include "../../app/helps/error_info.php"; ?>
+                    </div>
                     <div class="col-12">
                         <button name="topic-edit" class="btn btn-primary" type="submit">Обновить категорию</button>
                     </div>

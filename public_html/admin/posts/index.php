@@ -4,6 +4,7 @@ session_start();
 
 
 require_once("../../path.php");
+require_once("../../app/controllers/posts.php");
 ?>
 
 
@@ -61,24 +62,34 @@ include("../../app/include/header_admin.php");
             <div class="row title-table">
                 <h2>Управление записями</h2>
                 <div class="id col-1">ID</div>
-                <div class="title col-5">Название</div>
+                <div class="title col-3">Название</div>
                 <div class="author col-2">Автор</div>
-                <div class="red col-4">Действия</div>
+                <div class="red col-6">Действия</div>
             </div>
 
 
-
-            <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Лучшие сайты</div>
-                <div class="author col-2">Леон</div>
-                <div class="red col-2">
-                    <a href="#">edit</a>
+            <?php foreach ($postAdm as $key => $post): ?>
+                <div class="row post">
+                    <div class="id col-1"><?=$key + 1?></div>
+                    <div class="title col-3"><?=$post['title']?></div>
+                    <div class="author col-2"><?=$post['username']?></div>
+                    <div class="red col-2">
+                        <a href="edit.php?id=<?=$post['id']?>">edit</a>
+                    </div>
+                    <div class="del col-2">
+                        <a href="edit.php?delete_id=<?=$post['id']?>">delete</a>
+                    </div>
+                    <?php if($post['status']): ?>
+                        <div class="status col-2">
+                            <a href="edit.php?publish=0&pub_id=<?=$post['id']?>">В черновик</a>
+                        </div>
+                    <?php else: ?>
+                        <div class="status col-2">
+                            <a href="edit.php?publish=1&pub_id=<?=$post['id']?>">Опубликовать</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <div class="del col-2">
-                    <a href="#">delete</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
 
 
         </div>

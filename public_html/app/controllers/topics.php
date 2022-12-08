@@ -8,6 +8,7 @@ $topics = SelectAll('topics');
 
 $name = '';
 $description = '';
+$errMsg = [];
 
 // запись в бд
 if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['topic-create'])) {
@@ -16,13 +17,13 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['topic-create'])) {
     $description = trim($_POST['description']);
 
     if($name === '' || $description === ''){
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg, "Не все поля заполнены!");
     }else if(mb_strlen($name, 'UTF-8') < 2){
-        $errMsg = "Категория должна быть более 2-х символов";
+        array_push($errMsg, "Категория должна быть более 2-х символов");
     }else{
         $existence = selectOne('topics', ['name' => $name]);
         if(@$existence['name'] === $name){
-            $errMsg = "Такая категория уже есть";
+            array_push($errMsg, "Такая категория уже есть");
         }else{
             $topic = [
                 'name' => $name,
@@ -54,14 +55,14 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['topic-edit'])) {
     $id = $_POST['id'];
 
     if($name === '' || $description === ''){
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg, "Не все поля заполнены!");
     }else if(mb_strlen($name, 'UTF-8') < 2){
-        $errMsg = "Категория должна быть более 2-х символов";
+        array_push($errMsg, "Категория должна быть более 2-х символов");
     }else{
         $existence = selectOne('topics', ['name' => $name]);
         $now_name = selectOne('topics', ['id' => $id]);
         if(@$existence['name'] === $name and $now_name['name'] !== $name){
-            $errMsg = "Такая категория уже есть";
+            array_push($errMsg, "Такая категория уже есть");
         }else{
             $topic = [
                 'name' => $name,

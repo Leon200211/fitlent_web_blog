@@ -37,43 +37,35 @@ include("app/include/header.php");
     <div>
         <h2 class="slider-title">Мои проекты</h2>
     </div>
+    <?php
+    $topTopics = selectTopTopics('Top topics');
+    ?>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="carousel-item_img">
-                    <a href="/">
-                        <img src="assets/images/img_for_style/style_carousel/1.png" class="d-block w-100" alt="...">
-                    </a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><a href="/">Подробнее</a></h5>
+            <?php
+            foreach ($topTopics as $key => $topTopic){
+                if($key == 0){
+                    ?>
+                    <div class="carousel-item active">
+                <?php
+                }else{
+                    ?>
+                    <div class="carousel-item">
+                <?php
+                }
+                ?>
+                        <div class="carousel-item_img">
+                            <a href="/">
+                                <img src="<?=BASE_URL . 'assets/images/img_for_pages/posts/' . $topTopic['img']?>" class="d-block w-100" alt="...">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5><a href="single.php?post=<?=$topTopic['id']?>"><?=mb_substr($topTopic['title'], 0, 60) . '...'?></a></h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-item_img">
-                    <a href="/">
-                        <img src="assets/images/img_for_style/style_carousel/2.png" class="d-block w-100" alt="...">
-                    </a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><a href="/">Подробнее</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-item_img">
-                    <a href="/">
-                        <img src="assets/images/img_for_style/style_carousel/3.png" class="d-block w-100" alt="...">
-                    </a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><a href="/">Подробнее</a></h5>
-                    </div>
-                </div>
-            </div>
+                <?php
+            }
+            ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -96,38 +88,48 @@ include("app/include/header.php");
         <div class="main-content col-md-9 col-12">
             <h2>Последние публикации</h2>
 
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <img src="assets/images/img_for_style/style_carousel/1.png" alt="" class="img-thumbnail">
+            <?php
+            $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users', 'topics');
+            foreach ($posts as $post){
+                ?>
+                <div class="post row">
+                    <div class="img col-12 col-md-4">
+                        <img src="<?=BASE_URL . 'assets/images/img_for_pages/posts/' . $post['img']?>" alt="<?=$post['title']?>" class="img-thumbnail">
+                    </div>
+                    <div class="post_text col-12 col-md-8">
+                        <h3>
+                            <?php
+                            if(mb_strlen($post['title']) > 35){
+                                ?>
+                                <a href="single.php?post=<?=$post['id']?>"><?=mb_substr($post['title'], 0, 35) . '...'?></a>
+                            <?php
+                            }else{
+                                ?>
+                                <a href="single.php?post=<?=$post['id']?>"><?=$post['title']?></a>
+                            <?php
+                            }
+                            ?>
+                        </h3>
+                        <i><img src="assets/images/img_for_style/style_header/user.png" height="20" width="20"><?=$post['username']?></i>
+                        <i><img src="assets/images/img_for_style/style_header/calendar.png" height="20" width="20"><?=$post['created_date']?></i>
+                        <?php
+                        if(mb_strlen($post['content']) > 55){
+                            ?>
+                            <p class="preview-text"><?=mb_substr($post['content'], 0, 55) . '...'?></p>
+                            <?php
+                        }else{
+                            ?>
+                            <p class="preview-text"><?=$post['content']?></p>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="single.php">Подробнее...</a>
-                    </h3>
-                    <i><img src="assets/images/img_for_style/style_header/user.png" height="20" width="20">Имя автора</i>
-                    <i><img src="assets/images/img_for_style/style_header/calendar.png" height="20" width="20">2022-22-12</i>
-                    <p class="preview-text">
-                        Lorem sf.jkdsl ldjfls kdjflks djldsjflk jsdlkld sdf
-                        dsfsdlkfj jdslfjlds lksdflsdk kldsfkl sdksd sl sdk.
-                    </p>
-                </div>
-            </div>
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <img src="assets/images/img_for_style/style_carousel/1.png" alt="" class="img-thumbnail">
-                </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="#">Подробнее...</a>
-                    </h3>
-                    <i><img src="assets/images/img_for_style/style_header/user.png" height="20" width="20">Имя автора</i>
-                    <i><img src="assets/images/img_for_style/style_header/calendar.png" height="20" width="20">2022-22-12</i>
-                    <p class="preview-text">
-                        Lorem sf.jkdsl ldjfls kdjflks djldsjflk jsdlkld sdf
-                        dsfsdlkfj jdslfjlds lksdflsdk kldsfkl sdksd sl sdk.
-                    </p>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
+
+
 
         </div>
 
@@ -150,7 +152,7 @@ include("app/include/header.php");
                     $topics = SelectAll('topics');
                     foreach ($topics as $key => $topic):
                     ?>
-                    <li><a href="#"><?=$topic['name']?></a></li>
+                        <li><a href="#"><?=$topic['topics_title']?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>

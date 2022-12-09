@@ -71,7 +71,7 @@ include("../../app/include/header_admin.php");
                     ?>
                     <div class="row post">
                         <div class="id col-1"><?=$key+1?></div>
-                        <div class="title col-5"><?=$topic['name']?></div>
+                        <div class="title col-5"><?=$topic['topics_title']?></div>
                         <div class="red col-2">
                             <a href="edit.php?id=<?=$topic['id']?>">edit</a>
                         </div>

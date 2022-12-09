@@ -180,10 +180,37 @@ function selectAllFromPostsWithUsers($table1, $table2){
     $query->execute();
     dbCheckError($query);
     return $query->fetchAll();
+}
 
+
+// выбор постов на главную страницу
+function selectAllFromPostsWithUsersOnIndex($table1, $table2, $table3){
+    global $pdo;
+
+    $sql = "SELECT t1.*, t2.username, t3.topics_title FROM $table1 AS t1 
+    INNER JOIN $table2 AS t2 ON t1.id_user = t2.id
+    INNER JOIN $table3 AS t3 ON t1.id_topic = t3.id
+    WHERE t1.status = 1 ORDER BY t1.id DESC";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
 }
 
 
 
+// вывод топовых категорий
+function selectTopTopics($topic_name){
+    global $pdo;
 
+    $id_topic = selectOne('topics', ['topics_title' => $topic_name])['id'];
+    $sql = "SELECT `id`, `img`, `title` FROM posts WHERE `id_topic` = '$id_topic' AND `status` = 1";
+
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
 

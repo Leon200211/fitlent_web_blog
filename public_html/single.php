@@ -1,5 +1,8 @@
 <?php
-include("path.php");
+require_once("path.php");
+require_once(SITE_ROOT . "/app/database/db.php");
+
+$post = selectOne('posts', ['id' => $_GET['post']]);
 ?>
 
 
@@ -38,7 +41,7 @@ include("app/include/header.php");
     <div class="container row">
 
         <div class="main-content col-md-9 col-12">
-            <h2>Заголовок двыжал вдыжыа двылждыл длываждыв ждвлаждывл джылвдажл джлвыджалджы лвыджладжыв лаждыл джвы</h2>
+            <h2><?=$post['title']?></h2>
 
             <div class="single_post row">
                 <div class="img col-12">
@@ -50,20 +53,7 @@ include("app/include/header.php");
                 </div>
                 <div class="single_post_text col-12">
                     <h3>Заголовок 3 уровня</h3>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
-                        sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-                        Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-                        commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
-                        eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar
-                        facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue,
-                        eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
-                        porttitor, facilisis luctus, metus</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <?=$post['content']?>
                 </div>
             </div>
 
@@ -85,12 +75,12 @@ include("app/include/header.php");
             <div class="section topics">
                 <h3>Темы</h3>
                 <ul>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
-                    <li><a href="#">вапап</a></li>
+                    <?php
+                    $topics = SelectAll('topics');
+                    foreach ($topics as $key => $topic):
+                        ?>
+                        <li><a href="#"><?=$topic['topics_title']?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
 

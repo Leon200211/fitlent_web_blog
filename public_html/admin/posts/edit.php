@@ -79,7 +79,7 @@ include("../../app/include/header_admin.php");
                         <?php
                         foreach ($topics as $topic){
                             ?>
-                            <option value="<?=$topic['id']?>"><?=$topic['name']?></option>
+                            <option value="<?=$topic['id']?>"><?=$topic['topics_title']?></option>
                             <?php
                         }
                         ?>

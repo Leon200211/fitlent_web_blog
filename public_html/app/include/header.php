@@ -20,7 +20,7 @@
                             </a>
                             <ul>
                                 <?php if($_SESSION['user_state'] == 'admin'):  ?>
-                                    <li><a href="admin/admin.php">Админ панель</a></li>
+                                    <li><a href="admin/posts/index.php">Админ панель</a></li>
                                 <?php endif; ?>
                                 <li><a href="logout.php">Выход</a></li>
                             </ul>

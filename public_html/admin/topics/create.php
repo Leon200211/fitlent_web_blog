@@ -68,7 +68,7 @@ include("../../app/include/header_admin.php");
             <div class="row add-post">
                 <form action="create.php" method="post">
                     <div class="col">
-                        <input type="text" class="form-control" name="name" value="<?=$name?>" placeholder="Название категории" aria-label="Название категории">
+                        <input type="text" class="form-control" name="title" value="<?=$title?>" placeholder="Название категории" aria-label="Название категории">
                     </div>
                     <div class="col">
                         <label for="content" class="form-label">Описание категории</label>

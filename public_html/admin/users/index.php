@@ -4,6 +4,7 @@ session_start();
 
 
 require_once("../../path.php");
+require_once "../../app/controllers/users.php";
 ?>
 
 
@@ -59,27 +60,33 @@ include("../../app/include/header_admin.php");
             </div>
 
             <div class="row title-table">
-                <h2>Управление пользователями</h2>
+                <h2>Пользователи</h2>
                 <div class="id col-1">ID</div>
-                <div class="title col-5">Логин</div>
-                <div class="author col-2">Роль</div>
+                <div class="title col-2">Логин</div>
+                <div class="title col-4">Почта</div>
+                <div class="author col-1">Роль</div>
                 <div class="red col-4">Управление</div>
             </div>
 
 
-
-            <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Леон</div>
-                <div class="author col-2">Пользователь</div>
-                <div class="red col-2">
-                    <a href="#">edit</a>
+            <?php
+            foreach ($users as $key => $user){
+                ?>
+                <div class="row post">
+                    <div class="id col-1"><?=$key + 1?></div>
+                    <div class="title col-2"><?=$user['username']?></div>
+                    <div class="title col-4"><?=$user['email']?></div>
+                    <div class="author col-1"><?=$user['user_state']?></div>
+                    <div class="red col-2">
+                        <a href="edit.php?id_edit=<?=$user['id']?>">edit</a>
+                    </div>
+                    <div class="del col-2">
+                        <a href="edit.php?delete_id=<?=$user['id']?>">delete</a>
+                    </div>
                 </div>
-                <div class="del col-2">
-                    <a href="#">delete</a>
-                </div>
-            </div>
-
+                <?php
+            }
+            ?>
 
         </div>
 

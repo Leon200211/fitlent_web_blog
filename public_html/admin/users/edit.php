@@ -68,7 +68,8 @@ include("../../app/include/header_admin.php");
 
 
             <div class="row add-post">
-                <form action="create.php" method="post">
+                <form action="edit.php" method="post">
+                    <input type="hidden" name="id" value="<?=$id?>">
                     <div class="col">
                         <label for="login" class="form-label">Ваш логин</label>
                         <input type="text" value="<?=$login?>" name="login" class="form-control" id="login" placeholder="Example input placeholder">
@@ -78,16 +79,14 @@ include("../../app/include/header_admin.php");
                         <input type="email" value="<?=$email?>" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                     </div>
                     <div class="col">
-                        <label for="password" class="form-label">Пароль</label>
+                        <label for="password" class="form-label">Новый пароль</label>
                         <input type="password" name="password" class="form-control" id="password">
                     </div>
-                    <div class="col">
-                        <label for="password-second" class="form-label">Повторите пароль</label>
-                        <input type="password" name="password-second" class="form-control" id="password-second">
-                    </div>
+                    <br>
                     <div class="col">
                         <select name="user_state" class="form-select" aria-label="Default select example">
-                            <option selected value="user">User</option>
+                            <option selected value="<?=$user_state?>">Выбрано: <?=$user_state?></option>
+                            <option value="user">User</option>
                             <option value="admin">Admin</option>
                         </select>
                     </div>
@@ -95,7 +94,7 @@ include("../../app/include/header_admin.php");
                         <?php include "../../app/helps/error_info.php"; ?>
                     </div>
                     <div class="col-12">
-                        <button name="create-user" class="btn btn-primary" type="submit">Создать пользователя</button>
+                        <button name="user-edit" class="btn btn-primary" type="submit">Изменить пользователя</button>
                     </div>
                 </form>
             </div>

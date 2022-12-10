@@ -59,7 +59,7 @@ include("app/include/header.php");
                                 <img src="<?=BASE_URL . 'assets/images/img_for_pages/posts/' . $topTopic['img']?>" class="d-block w-100" alt="...">
                             </a>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5><a href="single.php?post=<?=$topTopic['id']?>"><?=mb_substr($topTopic['title'], 0, 60) . '...'?></a></h5>
+                                <h5><a href="single.php?post=<?=$topTopic['id']?>"><?=mb_substr($topTopic['title'], 0, 60) . '.'?></a></h5>
                             </div>
                         </div>
                     </div>
@@ -86,10 +86,21 @@ include("app/include/header.php");
     <div class="container row">
 
         <div class="main-content col-md-9 col-12">
-            <h2>Последние публикации</h2>
-
             <?php
-            $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users', 'topics');
+
+
+            if(isset($_GET['id_topic'])){
+                $posts = selectAllFromPostsOnTopics('posts', 'users', 'topics', $_GET['id_topic']);
+                ?>
+                <h2>Публикации по категории - <?=$posts[0]['topics_title']?></h2>
+                <?php
+            }else{
+                ?>
+                <h2>Последние публикации</h2>
+                <?php
+                $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users', 'topics');
+            }
+
             foreach ($posts as $post){
                 ?>
                 <div class="post row">
@@ -140,7 +151,7 @@ include("app/include/header.php");
 
             <div class="section search">
                 <h3>Поиск</h3>
-                <form action="/" method="post">
+                <form action="search.php" method="post">
                     <input type="text" name="search-term" class="text-input" placeholder="Поиск...">
                 </form>
             </div>
@@ -152,7 +163,7 @@ include("app/include/header.php");
                     $topics = SelectAll('topics');
                     foreach ($topics as $key => $topic):
                     ?>
-                        <li><a href="#"><?=$topic['topics_title']?></a></li>
+                        <li><a href="<?=BASE_URL . "index.php?id_topic={$topic['id']}"?>"><?=$topic['topics_title']?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>

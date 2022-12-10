@@ -63,8 +63,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['add_post'])) {
         // добавление записи в бд
         $post = [
             'id_user' => $_SESSION['id'],
-            'title' => $title,
-            'content' => $content,
+            'title' => addslashes($title),
+            'content' => addslashes($content),
             'img' => $img,
             'status' => $publish,
             'id_topic' => $topic,
@@ -139,8 +139,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['edit_post'])) {
         // добавление записи в бд
         $post = [
             'id_user' => $_SESSION['id'],
-            'title' => $title,
-            'content' => $content,
+            'title' => addslashes($title),
+            'content' => addslashes($content),
             'img' => $img,
             'status' => $publish,
             'id_topic' => $topic,

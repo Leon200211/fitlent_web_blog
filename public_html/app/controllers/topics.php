@@ -26,8 +26,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['topic-create'])) {
             array_push($errMsg, "Такая категория уже есть");
         }else{
             $topic = [
-                'topics_title' => $title,
-                'description' => $description
+                'topics_title' => addslashes($title),
+                'description' => addslashes($description)
             ];
             $id = insert('topics', $topic);
             $topic = selectOne('topics', ['id' => $id]);
@@ -65,8 +65,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST" and isset($_POST['topic-edit'])) {
             array_push($errMsg, "Такая категория уже есть");
         }else{
             $topic = [
-                'topics_title' => $title,
-                'description' => $description
+                'topics_title' => addslashes($title),
+                'description' => addslashes($description)
             ];
             $topic = update('topics', $id, $topic);
             header('Location:' . BASE_URL . 'admin/topics/index.php');

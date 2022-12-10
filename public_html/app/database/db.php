@@ -184,13 +184,13 @@ function selectAllFromPostsWithUsers($table1, $table2){
 
 
 // выбор постов на главную страницу
-function selectAllFromPostsWithUsersOnIndex($table1, $table2, $table3){
+function selectAllFromPostsWithUsersOnIndex($table1, $table2, $table3, $limit, $offset){
     global $pdo;
 
     $sql = "SELECT t1.*, t2.username, t3.topics_title FROM $table1 AS t1 
     INNER JOIN $table2 AS t2 ON t1.id_user = t2.id
     INNER JOIN $table3 AS t3 ON t1.id_topic = t3.id
-    WHERE t1.status = 1 ORDER BY t1.id DESC";
+    WHERE t1.status = 1 ORDER BY t1.id DESC LIMIT $limit OFFSET $offset";
 
     $query = $pdo->prepare($sql);
     $query->execute();
@@ -200,13 +200,13 @@ function selectAllFromPostsWithUsersOnIndex($table1, $table2, $table3){
 
 // вывод постов по определенной категории
 // выбор постов на главную страницу
-function selectAllFromPostsOnTopics($table1, $table2, $table3, $id_topics){
+function selectAllFromPostsOnTopics($table1, $table2, $table3, $id_topics, $limit, $offset){
     global $pdo;
 
     $sql = "SELECT t1.*, t2.username, t3.topics_title FROM $table1 AS t1 
     INNER JOIN $table2 AS t2 ON t1.id_user = t2.id
     INNER JOIN $table3 AS t3 ON t1.id_topic = t3.id
-    WHERE t1.status = 1 AND t1.id_topic = $id_topics ORDER BY t1.id DESC";
+    WHERE t1.status = 1 AND t1.id_topic = $id_topics ORDER BY t1.id DESC LIMIT $limit OFFSET $offset";
 
     $query = $pdo->prepare($sql);
     $query->execute();
@@ -278,7 +278,23 @@ function selectPostFromPostsWithUsersOnSingle($table1, $table2, $table3, $id){
 }
 
 
+// вернуть кол-во строк в таблице
+function countRow($table){
+    global $pdo;
 
+    $sql = "SELECT COUNT(*) FROM `$table` WHERE `status` = 1";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchColumn();
+}
+function countRowTopics($table, $id_topics){
+    global $pdo;
 
-
+    $sql = "SELECT COUNT(*) FROM `$table` WHERE `status` = 1 AND `id_topic` = '$id_topics'";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchColumn();
+}
 

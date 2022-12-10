@@ -4,6 +4,13 @@ session_start();
 require_once("path.php");
 require_once('app/database/db.php');
 
+
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$limit = 3;
+$offset = $limit * ($page - 1);
+
+$total_pages = ceil(countRow('posts') / $limit);
+
 ?>
 
 
@@ -90,7 +97,7 @@ include("app/include/header.php");
 
 
             if(isset($_GET['id_topic'])){
-                $posts = selectAllFromPostsOnTopics('posts', 'users', 'topics', $_GET['id_topic']);
+                $posts = selectAllFromPostsOnTopics('posts', 'users', 'topics', $_GET['id_topic'], $limit, $offset);
                 ?>
                 <h2>Публикации по категории - <?=$posts[0]['topics_title']?></h2>
                 <?php
@@ -98,7 +105,7 @@ include("app/include/header.php");
                 ?>
                 <h2>Последние публикации</h2>
                 <?php
-                $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users', 'topics');
+                $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users', 'topics', $limit, $offset);
             }
 
             foreach ($posts as $post){
@@ -138,10 +145,10 @@ include("app/include/header.php");
                 </div>
             <?php
             }
+
+
+            include ("app/include/pagination.php");
             ?>
-
-
-
         </div>
 
 

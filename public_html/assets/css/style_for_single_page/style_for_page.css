@@ -16,3 +16,35 @@
     text-decoration: none;
     color: #008489;
 }
+
+
+
+
+.all-comments{
+    margin-top: 3rem;
+}
+.all-comments h3{
+    margin-bottom: 3rem;
+}
+.all-comments .one-comment{
+    padding: 1rem;
+    border: 1px solid #008484;
+    border-radius: 4px;
+
+    margin-bottom: 20px;
+}
+
+.all-comments .one-comment span{
+    display: inline-flex;
+    margin: 1.5rem 1.5rem 1.5rem 0;
+}
+
+
+
+
+
+
+
+
+
+

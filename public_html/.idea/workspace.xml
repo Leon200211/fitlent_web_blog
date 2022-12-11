@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -37,6 +37,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\admin" />
       <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html" />
       <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\admin\users" />
       <recent name="C:\OpenServer\domains\fitlent_web_blog\public_html\admin\topics" />
@@ -71,7 +72,8 @@
       <workItem from="1670421524448" duration="7290000" />
       <workItem from="1670507037300" duration="11672000" />
       <workItem from="1670578620483" duration="20957000" />
-      <workItem from="1670668621377" duration="10764000" />
+      <workItem from="1670668621377" duration="11049000" />
+      <workItem from="1670751316594" duration="14526000" />
     </task>
     <servers />
   </component>

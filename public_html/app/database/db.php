@@ -298,3 +298,26 @@ function countRowTopics($table, $id_topics){
     return $query->fetchColumn();
 }
 
+
+
+
+// вывод всех комментариев
+function showComments($table, $id_post){
+    global $pdo;
+
+    $sql = "SELECT t1.*, t2.username FROM $table AS t1 
+    INNER JOIN `users` AS t2 ON t1.id_user = t2.id
+    WHERE t1.status = 1 AND t1.post = '$id_post' ORDER BY t1.id DESC";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
+
+
+
+
+
+
+

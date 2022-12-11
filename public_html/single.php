@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+
+
 require_once("path.php");
 require_once(SITE_ROOT . "/app/database/db.php");
 
@@ -58,6 +62,14 @@ include("app/include/header.php");
                     <h3><?=$post['topics_title']?></h3>
                     <?=$post['content']?>
                 </div>
+
+                <?php
+                if(!empty($_SESSION['id'])){
+                    // комментарии
+                    require_once ("app/include/comments.php");
+                }
+                ?>
+
             </div>
 
         </div>
